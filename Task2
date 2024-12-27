@@ -1,0 +1,84 @@
+import java.util.Scanner;
+public class StudentGrades {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the number of subjects/assignments: ");
+        int numSubjects = scanner.nextInt();
+        double[] grades = new double[numSubjects];
+        String[] letterGrades = new String[numSubjects];
+        double[] weights = new double[numSubjects];
+        double totalWeight = 0;
+        for (int i = 0; i < numSubjects; i++) {
+            System.out.print("Enter grade for subject " + (i + 1) + ": ");
+            grades[i] = scanner.nextDouble();
+            System.out.print("Enter weight for subject " + (i + 1) + " (as a percentage): ");
+            weights[i] = scanner.nextDouble();
+            letterGrades[i] = getLetterGrade(grades[i]);
+            totalWeight += weights[i]; // Keep track of total weight
+        }
+        double weightedTotal = 0;
+        for (int i = 0; i < numSubjects; i++) {
+            weightedTotal += grades[i] * (weights[i] / 100);
+        }
+        double averageGrade = weightedTotal;
+        String overallLetterGrade = getLetterGrade(averageGrade);
+        double overallGPA = getGPA(averageGrade);
+        System.out.println("\n--- Subject Grades ---");
+        for (int i = 0; i < numSubjects; i++) {
+            System.out.println("Subject " + (i + 1) + ": Grade = " + grades[i] + ", Letter Grade = " + letterGrades[i] + ", Weight = " + weights[i] + "%");
+        }
+        System.out.println("\n--- Overall Results ---");
+        System.out.println("Weighted Average Grade: " + averageGrade);
+        System.out.println("Overall Letter Grade: " + overallLetterGrade);
+        System.out.println("Overall GPA: " + overallGPA);
+        System.out.println("\nFeedback: " + getFeedback(overallGPA));
+
+        scanner.close();
+    }
+
+ 
+    public static String getLetterGrade(double grade) {
+        if (grade >= 90) {
+            return "A";
+        } else if (grade >= 80) {
+            return "B";
+        } else if (grade >= 70) {
+            return "C";
+        } else if (grade >= 60) {
+            return "D";
+        } else {
+            return "F";
+        }
+    }
+
+   
+    public static double getGPA(double averageGrade) {
+        if (averageGrade >= 90) {
+            return 4.0;
+        } else if (averageGrade >= 80) {
+            return 3.0;
+        } else if (averageGrade >= 70) {
+            return 2.0;
+        } else if (averageGrade >= 60) {
+            return 1.0;
+        } else {
+            return 0.0;
+        }
+    }
+
+
+    public static String getFeedback(double gpa) {
+        if (gpa == 4.0) {
+            return "Excellent work! Keep up the great effort!";
+        } else if (gpa >= 3.5) {
+            return "Very Good! You're doing well!";
+        } else if (gpa >= 3.0) {
+            return "Good! Keep pushing for more!";
+        } else if (gpa >= 2.0) {
+            return "Satisfactory! You can improve.";
+        } else {
+            return "Needs Improvement. Focus on your studies!";
+        }
+    }
+}
