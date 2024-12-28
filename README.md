@@ -7,6 +7,9 @@ Mentor: N.SANTHOSH
 
 Project Overview: Student Grades System
 
+![image](https://github.com/user-attachments/assets/f3096de2-4ae4-4247-8ed4-bdb5b6ee5bb6)
+
+
 Objective: 
 The project aims to create a Java program that calculates and evaluates the performance of students based on their grades across multiple subjects or assignments. It computes a weighted average grade, determines the overall letter grade, calculates GPA, and provides personalized feedback based on performance.
 
