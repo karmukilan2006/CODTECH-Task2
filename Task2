@@ -62,31 +62,29 @@ public class StudentGrades {
 
    
     public static double getGPA(double averageGrade) {
-        if (averageGrade >= 90) {
-            return 4.0;
-        } else if (averageGrade >= 80) {
-            return 3.0;
-        } else if (averageGrade >= 70) {
-            return 2.0;
-        } else if (averageGrade >= 60) {
-            return 1.0;
-        } else {
-            return 0.0;
-        }
+        if (averageGrade >= 90) return 10.0;
+        else if (averageGrade >= 80) return 9.0;
+        else if (averageGrade >= 70) return 8.0;
+        else if (averageGrade >= 60) return 7.0;
+        else if (averageGrade >= 50) return 6.0;
+        else if (averageGrade >= 40) return 5.0;
+        else return 0.0;
     }
-
-
     public static String getFeedback(double gpa) {
-        if (gpa == 4.0) {
-            return "Excellent work! Keep up the great effort!";
-        } else if (gpa >= 3.5) {
-            return "Very Good! You're doing well!";
-        } else if (gpa >= 3.0) {
+        if (gpa >= 9) {
+            return "Excellent! Keep up the outstanding work!";
+        } else if (gpa >= 8) {
+            return "Very Good! You’re doing really well!";
+        } else if (gpa >= 7) {
             return "Good! Keep pushing for more!";
-        } else if (gpa >= 2.0) {
+        } else if (gpa >= 6) {
             return "Satisfactory! You can improve.";
+        } else if (gpa >= 5) {
+            return "Needs Improvement. Focus more on your studies.";
         } else {
-            return "Needs Improvement. Focus on your studies!";
+            return "Poor performance. Strongly focus on your academics!";
         }
     }
+
+    
 }
